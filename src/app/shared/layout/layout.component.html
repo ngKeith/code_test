@@ -1,0 +1,112 @@
+<ng-container *ngIf="showLayout">
+  <mat-toolbar color="primary" *ngIf="colorsSet">
+    <img [src]="logoPic" alt="" class="logo" />
+    <span class="spacer"></span>
+    <button
+      mat-icon-button
+      (click)="toggleMenu()"
+      *ngIf="!(appBusy$ | async) && !(appLoading$ | async)"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div [@slideInOut]="menuOpen ? 'in' : 'void'" class="menu-dropdown">
+    <ng-container *ngIf="area == 'admin'">
+      <mat-nav-list>
+        <a
+          mat-list-item
+          *ngFor="let menuKey of adminMenuKeys"
+          (click)="doAction(adminMenu[menuKey])"
+        >
+          <!-- If menu object has userType make sure that the the userState type is equal else if no type show the item - same for permissions-->
+          <span
+            *ngIf="
+              isUserTypeAllowed(adminMenu[menuKey], userAuthState$ | async) &&
+              isPermissionAllowed(adminMenu[menuKey], permissionsList$ | async)
+            "
+            ><strong>{{ adminMenu[menuKey].label }}</strong></span
+          >
+        </a>
+      </mat-nav-list>
+    </ng-container>
+    <ng-container *ngIf="area == 'main'">
+      <mat-nav-list>
+        <ng-container *ngFor="let menuKey of mainMenuKeys">
+          <a
+            mat-list-item
+            (click)="doAction(mainMenu[menuKey])"
+            *ngIf="
+              isUserTypeAllowed(mainMenu[menuKey], userAuthState$ | async) &&
+              isPermissionAllowed(mainMenu[menuKey], permissionsList$ | async)
+            "
+          >
+            <!-- If menu object has userType make sure that the the userState type is equal else if no type show the item - same for permissions-->
+            <span
+              ><strong>{{ mainMenu[menuKey].label }}</strong></span
+            >
+          </a></ng-container
+        >
+        <!-- Add more links as needed -->
+      </mat-nav-list>
+    </ng-container>
+  </div>
+  <div class="inner-layout">
+    <ng-container *ngIf="!(appLoading$ | async)">
+      <ng-container *ngIf="appBusy$ | async">
+        <div class="overlay">
+          <div class="spinner">
+            <div style="width: fit-content; margin: auto">
+              <div class="loadingio-spinner-ellipsis">
+                <div class="ldio-ellipsis">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <router-outlet></router-outlet>
+  </div>
+</ng-container>
+<ng-container *ngIf="!showLayout">
+  <ng-container *ngIf="!(appLoading$ | async)">
+    <ng-container *ngIf="appBusy$ | async">
+      <div class="overlay">
+        <div class="spinner">
+          <div style="width: fit-content; margin: auto">
+            <div class="loadingio-spinner-ellipsis">
+              <div class="ldio-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <router-outlet></router-outlet>
+  </ng-container>
+  <ng-container *ngIf="appLoading$ | async">
+    <div class="spinner">
+      <div style="width: fit-content; margin: auto">
+        <div class="loadingio-spinner-ellipsis">
+          <div class="ldio-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

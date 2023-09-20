@@ -1,0 +1,69 @@
+<div class="container mt-5">
+  <!-- Show this when the page is loading  -->
+  <!-- <app-loading-overlay *ngIf="appBusy$ | async"></app-loading-overlay> -->
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card animate__animated animate__fadeIn animate__slower">
+        <div class="card-header d-flex justify-content-between">
+          <h4>Create User</h4>
+          <button class="btn btn-success" (click)="goToUsers()">Users</button>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="createUserForm" (submit)="letsCreateUser()">
+            <!-- Name -->
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" formControlName="title" />
+            </div>
+
+            <!-- Name -->
+            <div class="form-group">
+              <label>First tName</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+              />
+            </div>
+
+            <!-- Surname -->
+            <div class="form-group">
+              <label>Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+              />
+            </div>
+
+            <!-- Cell -->
+            <div class="form-group">
+              <label>Mobile</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="mobile"
+              />
+            </div>
+
+            <!-- Create the user -->
+            <div class="form-group mt-4">
+              <button class="btn btn-primary btn-block">Create User</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

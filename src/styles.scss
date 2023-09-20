@@ -1,1 +1,128 @@
 /* You can add global styles to this file, and also import other style files */
+
+$blue: #017afe;
+$green: #34c759;
+$red: #fe2d55;
+$lighgt-gray: #f2f1f6;
+$gray: #c5c4c8;
+$dark-gray: #8e8d92;
+
+body {
+  height: 100vh;
+  background-color: $lighgt-gray;
+  background-image: url("assets/img/wallpaper.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Fira Sans", sans-serif;
+  color: #383838;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.list-group,
+.list-group-item {
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.list-group-item {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.186) !important;
+  margin-bottom: 1px;
+}
+
+.card {
+  border: none;
+  background-color: white;
+  // box-shadow: 0px 10px 50px 0px rgba(26, 46, 85, 0.1);
+  border-radius: 20px;
+
+  .card-header {
+    padding: 0;
+    padding: 18px;
+    background-image: linear-gradient(to right, #afc6f2, #dfebfb);
+    background-color: #dceefd;
+    border-bottom: none;
+    border-radius: 18px 18px 0px 0px;
+
+    * {
+      margin-bottom: 0;
+      font-weight: 700 !important;
+    }
+  }
+}
+
+.primary {
+  color: $blue;
+}
+
+.success {
+  color: $green;
+}
+
+.danger {
+  color: $red;
+}
+
+.gray {
+  color: $gray;
+}
+
+.form-group {
+  margin: 12px 0px;
+
+  .form-control:focus {
+    box-shadow: none !important;
+  }
+}
+
+.btn {
+  padding: 8px;
+  border-radius: 12px;
+  &.btn-primary {
+    background-color: $blue !important;
+    border: 1px solid $blue !important;
+  }
+
+  &.btn-success {
+    background-color: $green !important;
+    border: 1px solid $green !important;
+  }
+
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+form {
+  .form-warning {
+    color: $red;
+    font-size: 0.75em;
+  }
+}
+label {
+  font-size: 0.8em;
+  position: relative;
+  left: 4px;
+  color: $dark-gray;
+}
+
+.table {
+  th {
+    font-weight: 400 !important;
+  }
+}
+
+// login component styling
+#login-main {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

@@ -1,0 +1,42 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+      <!-- Log Out BUtton -->
+      <div class="col-12 mb-4">
+        <button class="btn btn-danger" (click)="logout()">Log Out</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h4>Agent Details</h4>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="bold">First Name</span>
+              <span
+                >{{ (userAuthState$ | async)?.details?.firstName | uppercase }}
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="bold">Last Name</span>
+              <span
+                >{{ (userAuthState$ | async)?.details?.lastName | uppercase }}
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="bold">Mobile</span>
+              <span
+                >{{ (userAuthState$ | async)?.details?.mobile | uppercase }}
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="bold">Email</span>
+              <span>{{ (userAuthState$ | async)?.details?.email }} </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

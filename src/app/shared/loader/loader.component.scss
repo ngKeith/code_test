@@ -1,0 +1,182 @@
+@import "../../../assets/scss/common/_mixins.scss";
+@import "../../../assets/scss/common/_variables.scss";
+@import "../../../assets/scss/common/_general.scss";
+@import "../../../assets/scss/common/_rtl.scss";
+@import "../../../assets/scss/common/_rtl.scss";
+@import "../../../assets/scss/components/_feed.scss";
+@import "../../../assets/scss/components/_breadcrumbs.scss";
+@import "../../../assets/scss/ui/_alerts.scss";
+@import "../../../assets/scss/ui/_badgelistgroupitem.scss";
+@import "../../../assets/scss/ui/_buttons.scss";
+@import "../../../assets/scss/ui/_card.scss";
+@import "../../../assets/scss/ui/_collapse.scss";
+@import "../../../assets/scss/ui/_dialogs.scss";
+@import "../../../assets/scss/ui/_expansion.scss";
+@import "../../../assets/scss/ui/_mediaobject.scss";
+@import "../../../assets/scss/ui/_modals.scss";
+@import "../../../assets/scss/ui/_pageloader.scss";
+@import "../../../assets/scss/ui/_pagination.scss";
+@import "../../../assets/scss/ui/_panels.scss";
+@import "../../../assets/scss/ui/_preloaders.scss";
+@import "../../../assets/scss/ui/_progressbars.scss";
+@import "../../../assets/scss/ui/_slider.scss";
+@import "../../../assets/scss/ui/_snackbar.scss";
+@import "../../../assets/scss/ui/_tabs.scss";
+@import "../../../assets/scss/ui/_tooltippopovers.scss";
+@import "../../../assets/scss/ui/_ckeditor.scss";
+@import "../../../assets/scss/pages/_dashboard.scss";
+@import "../../../assets/scss/pages/_extra_pages.scss";
+@import "../../../assets/scss/pages/_chat.scss";
+@import "../../../assets/scss/theme/_dark.scss";
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0;
+  margin-bottom: 1rem;
+  list-style: none;
+}
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  float: left;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: "/" /* rtl: var(--bs-breadcrumb-divider, "/") */;
+  content: var(--bs-breadcrumb-divider, "/")
+    /* rtl: var(--bs-breadcrumb-divider, "/") */;
+}
+.breadcrumb-item.active {
+  color: #6c757d;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+
+.admin-container-no-scroll {
+  overflow: hidden;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.admin-container-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.back_show {
+  display: none;
+}
+
+@media screen and (max-width: 1300px) {
+  #message_history {
+    width: 100%;
+  }
+  #contact_list {
+    width: 100%;
+  }
+
+  .block_hide {
+    display: none;
+  }
+
+  .back_show {
+    display: block;
+  }
+}
+
+.checked {
+  color: var(--bs-primary);
+}
+
+.chatCircle {
+  height: 35px;
+  width: 35px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.user-outer {
+  display: table;
+  position: relative;
+  top: -20px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.user-middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner-user {
+  height: 98vh;
+  max-width: 98vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-user {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+.toggle-max {
+  width: 98vw;
+}
+
+.toggle-slim {
+  width: 800px;
+}
+
+.user-area-button {
+  height: 25px;
+  width: 25px;
+}
+
+.user-right-buttons-div {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  flex-direction: row;
+  z-index: 10;
+}
+
+.user-left-buttons-div {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  flex-direction: row;
+  z-index: 10;
+}
+
+@media screen and (max-width: 992px) {
+  .card_stats {
+    font-size: 20px !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 100% !important;
+  }
+}

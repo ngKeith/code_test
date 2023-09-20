@@ -1,0 +1,62 @@
+<div class="container" id="login-main">
+  <!-- Show this when the page is loading  -->
+  <app-loading-overlay *ngIf="appBusy$ | async"></app-loading-overlay>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card animate__animated animate__fadeIn animate__slower">
+        <div class="card-header text-center">
+          <h4>{{ loggedInMessage }}</h4>
+        </div>
+        <div class="card-body">
+          <!--  Form to log In the  user  -->
+          <form [formGroup]="loginForm" (submit)="logInUser()">
+            <!-- Email -->
+            <div class="form-group">
+              <label for="">Email</label>
+
+              <input type="text" class="form-control" formControlName="email" />
+              <span
+                class="text-danger form-warning"
+                *ngIf="
+                  loginForm.controls.email.touched &&
+                  loginForm.controls.email.invalid
+                "
+                >Invalid Email</span
+              >
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+              />
+              <span
+                class="text-danger form-warning"
+                *ngIf="
+                  loginForm.controls.password.touched &&
+                  loginForm.controls.password.invalid
+                "
+                >Please enter password</span
+              >
+            </div>
+
+            <!-- Create the user -->
+            <div class="form-group mt-4">
+              <button class="btn btn-primary btn-block">Log In</button>
+            </div>
+
+            <div
+              class="login-error text-center text-danger"
+              *ngIf="(loginError$ | async)?.loginError as loginError"
+            >
+              {{ loginError }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

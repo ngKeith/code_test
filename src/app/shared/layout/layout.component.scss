@@ -1,0 +1,131 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: var(--vh);
+  width: 100vw;
+}
+
+.logo {
+  height: 100%;
+  max-height: 48px; /* Adjust this value based on the desired height of your logo */
+  margin-right: 8px;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.menu-dropdown {
+  position: fixed;
+  top: 70px; /* Adjust this value according to the height of your toolbar */
+  right: 0;
+  width: 100%;
+  height: calc(
+    100% - 70px
+  ); /* Adjust this value according to the height of your toolbar */
+  background-color: rgba(57, 159, 86, 0.2);
+  z-index: 999;
+  overflow: auto;
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+app-animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; // Place the animated background behind the menu items
+}
+
+.mat-toolbar {
+  z-index: 1000; /* Ensure the toolbar is above the menu dropdown */
+  height: 70px;
+  min-height: 70px;
+  background: linear-gradient(
+    135deg,
+    var(--col-scnd) 0%,
+    var(--col-scnd) 35%,
+    var(--col-thrd) 35%,
+    var(--col-thrd) 65%,
+    var(--col-reg) 65%,
+    var(--col-reg) 100%
+  );
+}
+
+mat-nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+mat-nav-list a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ); /* Apply a transparency of 0.5 to --col-thrd */
+  font-size: 26px; /* Make the text slightly bigger */
+  font-weight: bold; /* Make the text bolder */
+  text-decoration: none;
+  padding: 16px; /* Keep padding for better appearance */
+  width: 100%; /* Set the width to 100% */
+  text-align: center; /* Center the text */
+  span {
+    color: var(--col-scnd) !important;
+  }
+}
+
+mat-nav-list a:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Add a hover effect */
+}
+
+.inner-layout {
+  flex: 1;
+  overflow-y: auto; /* Allow scrolling if the content height exceeds the available space */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 900;
+}
+
+@media (max-width: 767px) {
+  .mat-toolbar {
+    background: linear-gradient(
+      135deg,
+      var(--col-scnd) 0%,
+      var(--col-scnd) 75%,
+      var(--col-reg) 75%,
+      var(--col-reg) 100%
+    );
+  }
+}

@@ -1,0 +1,38 @@
+<button
+  class="dialog-close-no-borders"
+  mat-icon-button
+  [mat-dialog-close]="true"
+>
+  <i
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      role="img"
+      width="1em"
+      height="1em"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 1024 1024"
+    >
+      <path
+        fill="currentColor"
+        d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504L738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512L828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496L285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512L195.2 285.696a64 64 0 0 1 0-90.496z"
+      /></svg
+  ></i>
+</button>
+<h1 style="display: inline-block" mat-dialog-title>{{ header }}</h1>
+<div mat-dialog-content style="white-space: pre-line">
+  {{ message }}
+</div>
+<div *ngIf="confirm" class="m-t-15">
+  <button
+    mat-raised-button
+    class="right"
+    style="margin-left: 15px"
+    (click)="actionCallback(true)"
+  >
+    {{ validText }}
+  </button>
+  <button mat-raised-button class="right" (click)="actionCallback(false)">
+    {{ invalidText }}
+  </button>
+</div>
